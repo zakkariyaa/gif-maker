@@ -71,23 +71,21 @@ const Input = () => {
       {
         inputEl ?
           <PreveiwSection>
-            <div>
-              <AiFillFile />
-              <p>{inputEl.name}</p>
-              < FaSync className='sync' />
-              <button onClick={() => handleConvert(inputEl)}>Convert</button>
-              {(processing || finished) && <span processing={processing}
-                finished={finished}
-                style={{
-                  background: processing ? '#e5ecbe' : 'green',
-                  color: processing ? '#063970' : 'white'
-                }}
-              >
-                {processing ? 'Processing...' : 'Finished!'}</span>
-              }
-              {gifFiles && <a href={gifFiles} download>Download</a>}
-              <IoClose className='close_icon' onClick={handleClose} />
-            </div>
+            <AiFillFile className='file_icon' />
+            <p>{inputEl.name}</p>
+            < FaSync className='sync' />
+            {!finished && <button onClick={() => handleConvert(inputEl)}>Convert</button>}
+            {(processing || finished) && <span processing={processing}
+              finished={finished}
+              style={{
+                background: processing ? '#e5ecbe' : 'green',
+                color: processing ? '#063970' : 'white'
+              }}
+            >
+              {processing ? 'Processing...' : 'Finished!'}</span>
+            }
+            {gifFiles && <a href={gifFiles} download>Download</a>}
+            <IoClose className='close_icon' onClick={handleClose} />
           </PreveiwSection>
           :
           <InputSection>
@@ -121,60 +119,126 @@ const InputSection = styled.div`
     font-size: 2rem;
     cursor: pointer;
   }
+
+  @media (max-width: 620px) {
+    padding: 0.5rem 1.8rem;
+    .icon, label {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 300px) {
+    padding: 0.3rem 1.1rem;
+    gap: 0.5rem;
+    .icon, label {
+      font-size: 0.9rem;
+    }
+  }
 `
 
 const PreveiwSection = styled.section`
-  div {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1.6rem;
-    padding: 0.5rem 2rem;
-    width: 80%;
-    margin: 2rem auto 0;
-    box-shadow: 1.5rem 0.5rem 1.5rem 0.5rem rgba(36, 0, 64, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 2rem;
+  width: 80%;
+  margin: 2rem auto 0;
+  box-shadow: 1.5rem 0.5rem 1.5rem 0.5rem rgba(36, 0, 64, 0.2);
 
-    .sync {
-      margin-left: auto;
-      margin-right: 2rem;
-    }
+  .sync {
+    margin-left: auto;
+    margin-right: 2rem;
+  }
 
-    button {
-      padding: 0.5rem 1rem;
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1.8rem;
+    border-radius: 0.3rem;
+    background-color: #b53836;
+    color: white;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  span {
+    margin-left: 5rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+
+  a {
+    text-decoration: none;
+    margin-left: 2rem;
+    padding: 0.8rem 1.6rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    background-color: green;
+    color: white;
+    border-radius: 0.3rem;
+    cursor: pointer;
+  }
+
+  .close_icon {
+    margin-left: auto;
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: #b53836;
+    cursor: pointer;
+  }
+
+  @media (max-width: 820px) {
+    justify-content: space-around;
+    font-size: 1rem;
+
+    .sync, .file_icon {
       font-size: 1.8rem;
-      border-radius: 0.3rem;
-      background-color: #b53836;
-      color: white;
-      border: 1px solid transparent;
-      cursor: pointer;
-    }
-
-    span {
-      margin-left: 5rem;
-      padding: 0.5rem 1rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 1.2rem;
-    }
-
-    a {
-      text-decoration: none;
-      margin-left: 2rem;
-      padding: 0.8rem 1.6rem;
-      text-transform: uppercase;
-      font-size: 1.2rem;
-      background-color: green;
-      color: white;
-      border-radius: 0.3rem;
-      cursor: pointer;
     }
 
     .close_icon {
-      margin-left: auto;
-      font-size: 2.1rem;
-      font-weight: bold;
-      color: #b53836;
-      cursor: pointer;
+      font-size: 2.9rem;
+    }
+
+    button, span, a {
+      padding: 0.3rem 0.5rem;
+      font-size: 1.1rem;
+    }
+    span {
+      margin-left: 0;
+    }
+    a {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 620px) {
+    p {
+      font-size: 0.7rem;
+    }
+    .sync, .file_icon {
+      font-size: 1.8rem;
+    }
+
+    .close_icon {
+      font-size: 2.8rem;
+    }
+
+    span, a {
+      padding: 0.3rem 0.5rem;
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .sync, .file_icon {
+      display: none;
+    }
+
+    .close_icon {
+      font-size: 2rem;
     }
   }
 `

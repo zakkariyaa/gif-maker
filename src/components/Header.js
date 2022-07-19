@@ -32,6 +32,31 @@ const HeaderSection = styled.section`
     text-align: center;
     width: 60%;
   }
+
+  @media (max-width: 620px) {
+    /* gap: 3rem; */
+    h2 {
+      font-size: 1.7rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 2.3rem;
+    }
+  }
+
+  @media (max-width: 300px) {
+    height: 30vh;
+    justify-content: space-around;
+    h2 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.7rem;
+      line-height: 1.4rem;
+    }
+  }
 `
 
 export default Header
