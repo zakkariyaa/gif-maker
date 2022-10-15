@@ -8,9 +8,8 @@ A Fullstack project to convert Video files to Audio [Project website](https://vi
 <br />
 <h2>How it's made:</h2>
 <p><b>Tech used:</b> Nodejs, Expressjs, ffmpeg, React</p>
-<p>Composed of two parts: a React frontend hosted on Netlify and a RESTful backend API
-<br>hosted on Heroku. Uploaded videos are converted to MP3 by using ffmpeg on the backend</p>
-<p>It also has a functionality for handling multiple files.</p>
+<p>RESTful API on the backend converts uploaded videos into downloadable 4 seconds gif.
+<br>The API uses ffmpeg to manipulate videos files. React application is used for the frontend</p>
 
 <br />
 <br />
