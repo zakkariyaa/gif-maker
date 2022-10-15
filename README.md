@@ -2,7 +2,7 @@
 
 A Fullstack project to convert Video files to Audio [Project website](https://video-converterr.netlify.app/).
 
-<img src="https://raw.githubusercontent.com/zakkariyaa/video-converter/53348b6bf8a27b5115855cd321752bc442efa55d/src/assets/converterpic2.png?raw=true" alt="Tenzies Game" height="422px" width="100%" />
+<img src="https://github.com/zakkariyaa/gif-maker/blob/master/src/assets/gif-maker.png?raw=true" alt="Gif Maker" height="422px" width="100%" />
 
 <br />
 <br />
